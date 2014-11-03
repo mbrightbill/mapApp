@@ -36,8 +36,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         default:
             println("default case")
         }
-        
-
     }
     
     func didLongPressMap(sender : UILongPressGestureRecognizer) {
@@ -70,10 +68,4 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         annotationView.rightCalloutAccessoryView = addButton
         return annotationView
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }

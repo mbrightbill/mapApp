@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 
-
 class AddReminderViewController: UIViewController {
     
     var locationManager : CLLocationManager!
@@ -30,11 +29,4 @@ class AddReminderViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
