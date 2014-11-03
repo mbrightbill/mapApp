@@ -424,6 +424,7 @@
 				D530A5811A081E8800E16FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D530A5821A081E8800E16FE0 /* Build configuration list for PBXNativeTarget "mapAppTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +433,7 @@
 				D530A5841A081E8800E16FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

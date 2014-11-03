@@ -7,7 +7,7 @@
         <!--Item 2-->
         <scene sceneID="y39-c3-X5f">
             <objects>
-                <viewController id="nC4-W8-IKy" customClass="AddReminderViewController" customModule="mapApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="REMINDER_VC" id="nC4-W8-IKy" customClass="AddReminderViewController" customModule="mapApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mry-NR-ZmW"/>
                         <viewControllerLayoutGuide type="bottom" id="L7E-zA-20E"/>
@@ -15,7 +15,22 @@
                     <view key="view" contentMode="scaleToFill" id="eWT-Dr-pUG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89n-yw-pMu">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressAddReminderButton:" destination="nC4-W8-IKy" eventType="touchUpInside" id="OP8-YE-Ofc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="89n-yw-pMu" secondAttribute="centerX" id="SpW-Hi-rDT"/>
+                            <constraint firstAttribute="centerY" secondItem="89n-yw-pMu" secondAttribute="centerY" id="mxl-T3-XZY"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="7kI-un-7fJ"/>
                 </viewController>
@@ -48,6 +63,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="jAP-ym-8lq"/>
+                    <connections>
+                        <outlet property="mapView" destination="27X-n1-Vd6" id="WYo-CN-zIj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iY-MH-ZMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
