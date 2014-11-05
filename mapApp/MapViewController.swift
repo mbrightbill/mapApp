@@ -16,6 +16,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reminderAdded:", name: "REMINDER_ADDED", object: nil)
+        
         self.locationManager.delegate = self
         self.mapView.delegate = self
         
@@ -36,6 +39,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         default:
             println("default case")
         }
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     func didLongPressMap(sender : UILongPressGestureRecognizer) {
@@ -67,5 +74,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let addButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
         annotationView.rightCalloutAccessoryView = addButton
         return annotationView
+    }
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        let renderer = MKCircleRenderer(overlay: overlay)
+        renderer.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.10)
+        return renderer
+    }
+    
+    func reminderAdded(notification : NSNotification) {
+        let userInfo = notification.userInfo!
+        let geoRegion = userInfo["region"] as CLCircularRegion
+        let overlay = MKCircle(centerCoordinate: geoRegion.center, radius: geoRegion.radius)
+        self.mapView.addOverlay(overlay)
     }
 }

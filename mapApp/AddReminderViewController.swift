@@ -19,13 +19,16 @@ class AddReminderViewController: UIViewController {
 
         let regionSet = self.locationManager.monitoredRegions
         let regions = regionSet.allObjects
+        
     }
 
  
     @IBAction func didPressAddReminderButton(sender: AnyObject) {
         
-        var geoRegion = CLCircularRegion(center: selectedAnnotation.coordinate, radius: 100.0, identifier: "TestRegion")
+        var geoRegion = CLCircularRegion(center: selectedAnnotation.coordinate, radius: 400_000.0, identifier: "TestRegion")
         self.locationManager.startMonitoringForRegion(geoRegion)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("REMINDER_ADDED", object: self, userInfo: ["region": geoRegion])
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
