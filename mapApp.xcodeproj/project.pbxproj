@@ -16,6 +16,7 @@
 		D530A5861A08201A00E16FE0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D530A5851A08201A00E16FE0 /* MapKit.framework */; };
 		D530A5881A0821E600E16FE0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530A5871A0821E600E16FE0 /* MapViewController.swift */; };
 		D530A58A1A08220000E16FE0 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530A5891A08220000E16FE0 /* AddReminderViewController.swift */; };
+		D5B8396E1A0AD33E007A405F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8396D1A0AD33E007A405F /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		D530A5851A08201A00E16FE0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D530A5871A0821E600E16FE0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D530A5891A08220000E16FE0 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		D5B8396D1A0AD33E007A405F /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +87,12 @@
 		D530A55F1A081E8800E16FE0 /* mapApp */ = {
 			isa = PBXGroup;
 			children = (
+				D5B839711A0AD3CE007A405F /* View Layer */,
+				D5B839701A0AD3C1007A405F /* Controller Layer */,
+				D5B8396F1A0AD3B6007A405F /* Model Layer */,
 				D530A5621A081E8800E16FE0 /* AppDelegate.swift */,
-				D530A5871A0821E600E16FE0 /* MapViewController.swift */,
-				D530A5891A08220000E16FE0 /* AddReminderViewController.swift */,
-				D530A5691A081E8800E16FE0 /* Main.storyboard */,
-				D530A56C1A081E8800E16FE0 /* Images.xcassets */,
-				D530A56E1A081E8800E16FE0 /* LaunchScreen.xib */,
 				D530A5641A081E8800E16FE0 /* mapApp.xcdatamodeld */,
+				D5B8396D1A0AD33E007A405F /* Reminder.swift */,
 				D530A5601A081E8800E16FE0 /* Supporting Files */,
 			);
 			path = mapApp;
@@ -120,6 +121,32 @@
 				D530A57A1A081E8800E16FE0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5B8396F1A0AD3B6007A405F /* Model Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model Layer";
+			sourceTree = "<group>";
+		};
+		D5B839701A0AD3C1007A405F /* Controller Layer */ = {
+			isa = PBXGroup;
+			children = (
+				D530A5891A08220000E16FE0 /* AddReminderViewController.swift */,
+				D530A5871A0821E600E16FE0 /* MapViewController.swift */,
+			);
+			name = "Controller Layer";
+			sourceTree = "<group>";
+		};
+		D5B839711A0AD3CE007A405F /* View Layer */ = {
+			isa = PBXGroup;
+			children = (
+				D530A5691A081E8800E16FE0 /* Main.storyboard */,
+				D530A56E1A081E8800E16FE0 /* LaunchScreen.xib */,
+				D530A56C1A081E8800E16FE0 /* Images.xcassets */,
+			);
+			name = "View Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +258,7 @@
 				D530A5661A081E8800E16FE0 /* mapApp.xcdatamodeld in Sources */,
 				D530A5881A0821E600E16FE0 /* MapViewController.swift in Sources */,
 				D530A5631A081E8800E16FE0 /* AppDelegate.swift in Sources */,
+				D5B8396E1A0AD33E007A405F /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
