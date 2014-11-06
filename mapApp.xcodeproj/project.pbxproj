@@ -17,6 +17,7 @@
 		D530A5881A0821E600E16FE0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530A5871A0821E600E16FE0 /* MapViewController.swift */; };
 		D530A58A1A08220000E16FE0 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530A5891A08220000E16FE0 /* AddReminderViewController.swift */; };
 		D5B8396E1A0AD33E007A405F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8396D1A0AD33E007A405F /* Reminder.swift */; };
+		D5B839731A0B30AD007A405F /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B839721A0B30AD007A405F /* ReminderTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D530A5871A0821E600E16FE0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D530A5891A08220000E16FE0 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		D5B8396D1A0AD33E007A405F /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		D5B839721A0B30AD007A405F /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			children = (
 				D530A5891A08220000E16FE0 /* AddReminderViewController.swift */,
 				D530A5871A0821E600E16FE0 /* MapViewController.swift */,
+				D5B839721A0B30AD007A405F /* ReminderTableViewController.swift */,
 			);
 			name = "Controller Layer";
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				D530A5881A0821E600E16FE0 /* MapViewController.swift in Sources */,
 				D530A5631A081E8800E16FE0 /* AppDelegate.swift in Sources */,
 				D5B8396E1A0AD33E007A405F /* Reminder.swift in Sources */,
+				D5B839731A0B30AD007A405F /* ReminderTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LxP-q2-qWg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aYI-3g-w5B">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -36,9 +36,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CO-xc-cqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="754"/>
+            <point key="canvasLocation" x="2261" y="-294"/>
         </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="QsL-7Y-MJz">
             <objects>
                 <viewController id="gK0-Nk-Cpx" customClass="MapViewController" customModule="mapApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,33 +62,64 @@
                             <constraint firstItem="27X-n1-Vd6" firstAttribute="leading" secondItem="8dB-Ne-XU8" secondAttribute="leading" id="SEn-fE-5nK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="jAP-ym-8lq"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="jAP-ym-8lq"/>
                     <connections>
                         <outlet property="mapView" destination="27X-n1-Vd6" id="WYo-CN-zIj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iY-MH-ZMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="92"/>
+            <point key="canvasLocation" x="1617" y="-294"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="Mbz-st-YXv">
+            <objects>
+                <viewController id="H3C-0Q-AeF" customClass="ReminderTableViewController" customModule="mapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a1F-8G-nzW"/>
+                        <viewControllerLayoutGuide type="bottom" id="lKu-t9-dZu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fRh-pc-W2D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r9g-XG-NwW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="r9g-XG-NwW" secondAttribute="trailing" id="5jL-Ex-omk"/>
+                            <constraint firstItem="r9g-XG-NwW" firstAttribute="top" secondItem="fRh-pc-W2D" secondAttribute="top" id="9f4-zf-d3N"/>
+                            <constraint firstItem="lKu-t9-dZu" firstAttribute="top" secondItem="r9g-XG-NwW" secondAttribute="bottom" id="Ao2-2V-5tE"/>
+                            <constraint firstItem="r9g-XG-NwW" firstAttribute="leading" secondItem="fRh-pc-W2D" secondAttribute="leading" id="ybX-UB-ip6"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Reminders" id="dgy-kj-eZ3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mmn-DC-c13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="572"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="gvJ-1l-7fP">
+        <scene sceneID="DEw-w8-IdH">
             <objects>
-                <tabBarController id="LxP-q2-qWg" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aYI-3g-w5B" sceneMemberID="viewController">
+                    <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="51t-hZ-cqM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="thw-Fy-oDM">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gK0-Nk-Cpx" kind="relationship" relationship="viewControllers" id="8Y8-Et-cUh"/>
-                        <segue destination="nC4-W8-IKy" kind="relationship" relationship="viewControllers" id="9hM-Pn-b5G"/>
+                        <segue destination="gK0-Nk-Cpx" kind="relationship" relationship="viewControllers" id="PSn-Ot-ldc"/>
+                        <segue destination="H3C-0Q-AeF" kind="relationship" relationship="viewControllers" id="pqG-Kb-h3A"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DL2-f1-6vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lGa-cZ-xIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="423"/>
+            <point key="canvasLocation" x="805" y="92"/>
         </scene>
     </scenes>
 </document>
