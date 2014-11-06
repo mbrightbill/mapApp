@@ -84,19 +84,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r9g-XG-NwW">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="REMINDER_CELL" id="gzK-F0-4eQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzK-F0-4eQ" id="Mwz-Ai-lmJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="r9g-XG-NwW" secondAttribute="trailing" id="5jL-Ex-omk"/>
-                            <constraint firstItem="r9g-XG-NwW" firstAttribute="top" secondItem="fRh-pc-W2D" secondAttribute="top" id="9f4-zf-d3N"/>
+                            <constraint firstItem="r9g-XG-NwW" firstAttribute="top" secondItem="fRh-pc-W2D" secondAttribute="top" constant="20" id="9f4-zf-d3N"/>
                             <constraint firstItem="lKu-t9-dZu" firstAttribute="top" secondItem="r9g-XG-NwW" secondAttribute="bottom" id="Ao2-2V-5tE"/>
                             <constraint firstItem="r9g-XG-NwW" firstAttribute="leading" secondItem="fRh-pc-W2D" secondAttribute="leading" id="ybX-UB-ip6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Reminders" id="dgy-kj-eZ3"/>
+                    <connections>
+                        <outlet property="tableView" destination="r9g-XG-NwW" id="uk0-44-g6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmn-DC-c13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

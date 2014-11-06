@@ -18,6 +18,7 @@
 		D530A58A1A08220000E16FE0 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530A5891A08220000E16FE0 /* AddReminderViewController.swift */; };
 		D5B8396E1A0AD33E007A405F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8396D1A0AD33E007A405F /* Reminder.swift */; };
 		D5B839731A0B30AD007A405F /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B839721A0B30AD007A405F /* ReminderTableViewController.swift */; };
+		D5B839761A0B4870007A405F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B839751A0B4870007A405F /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		D530A5891A08220000E16FE0 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		D5B8396D1A0AD33E007A405F /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		D5B839721A0B30AD007A405F /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
+		D5B839741A0B4869007A405F /* mapApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mapApp.entitlements; sourceTree = "<group>"; };
+		D5B839751A0B4870007A405F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D530A5861A08201A00E16FE0 /* MapKit.framework in Frameworks */,
+				D5B839761A0B4870007A405F /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +74,7 @@
 		D530A5541A081E8800E16FE0 = {
 			isa = PBXGroup;
 			children = (
+				D5B839751A0B4870007A405F /* CloudKit.framework */,
 				D530A5851A08201A00E16FE0 /* MapKit.framework */,
 				D530A55F1A081E8800E16FE0 /* mapApp */,
 				D530A5781A081E8800E16FE0 /* mapAppTests */,
@@ -89,6 +94,7 @@
 		D530A55F1A081E8800E16FE0 /* mapApp */ = {
 			isa = PBXGroup;
 			children = (
+				D5B839741A0B4869007A405F /* mapApp.entitlements */,
 				D5B839711A0AD3CE007A405F /* View Layer */,
 				D5B839701A0AD3C1007A405F /* Controller Layer */,
 				D5B8396F1A0AD3B6007A405F /* Model Layer */,
@@ -201,8 +207,12 @@
 				TargetAttributes = {
 					D530A55C1A081E8800E16FE0 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = W4PDJPG4TJ;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -387,9 +397,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = mapApp/mapApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = mapApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -397,9 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = mapApp/mapApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = mapApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
