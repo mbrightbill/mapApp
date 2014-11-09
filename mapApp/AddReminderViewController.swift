@@ -31,6 +31,7 @@ class AddReminderViewController: UIViewController {
     @IBAction func didPressAddReminderButton(sender: AnyObject) {
         
         var geoRegion = CLCircularRegion(center: selectedAnnotation.coordinate, radius: 400_000.0, identifier: "Geo Region!")
+        println()
         self.locationManager.startMonitoringForRegion(geoRegion)
         
         //insert a new reminder into our DataBase

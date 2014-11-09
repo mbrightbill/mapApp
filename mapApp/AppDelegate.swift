@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // iOS 8 style local notifications
+        if (UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
+            let types = UIUserNotificationType.Alert | UIUserNotificationType.Badge
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: types, categories: nil))
+        }
+        
+        // iOS 8 style remote notifications
+        if (UIApplication.instancesRespondToSelector(Selector("registerForRemoteNotifications"))) {
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        }
+        
         return true
     }
 

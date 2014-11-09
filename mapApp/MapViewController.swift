@@ -29,6 +29,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         case .Authorized:
             println("authorized")
             self.mapView.showsUserLocation = true
+            println("Is user visible? -- \(self.mapView.userLocationVisible)")
+            self.locationManager.startUpdatingLocation()
         case .NotDetermined:
             println("not determined")
             self.locationManager.requestAlwaysAuthorization()
@@ -50,7 +52,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if sender.state == UIGestureRecognizerState.Began {
             let touchPoint = sender.locationInView(self.mapView)
             let touchCoordinate = self.mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-            
+            println("Touch Press Coordinates: \(touchCoordinate.latitude), \(touchCoordinate.longitude)")
             var annotation = MKPointAnnotation()
             annotation.coordinate = touchCoordinate
             annotation.title = "Add Reminder"
@@ -68,12 +70,41 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
+        self.mapView.showsUserLocation = true
+        
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "ANNOTATION")
         annotationView.animatesDrop = true
         annotationView.canShowCallout = true
         let addButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
         annotationView.rightCalloutAccessoryView = addButton
         return annotationView
+    }
+    
+    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+        println("Entered new region!")
+        
+        if let circularRegion = region as? CLCircularRegion {
+            println("Entered region with center \(circularRegion.center.latitude), \(circularRegion.center.longitude)")
+            if UIApplication.sharedApplication().applicationState == UIApplicationState.Background {
+                var localNotifcation = UILocalNotification()
+                localNotifcation.alertAction = "You've just entered a monitored region!"
+                localNotifcation.alertBody = "As a reminder, you are entering a new, monitored regoin!"
+                localNotifcation.fireDate = NSDate()
+                UIApplication.sharedApplication().scheduleLocalNotification(localNotifcation)
+            }
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+        println("Exited region!")
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("We got a location!")
+        
+        if let location = locations.last as? CLLocation {
+            println("Updated location: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+        }
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
