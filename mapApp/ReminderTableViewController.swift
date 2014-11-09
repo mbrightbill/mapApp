@@ -19,6 +19,7 @@ class ReminderTableViewController: UIViewController, UITableViewDataSource, NSFe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        //self.tableView.tableHeaderView =
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.managedObjectContext = appDelegate.managedObjectContext
@@ -51,6 +52,41 @@ class ReminderTableViewController: UIViewController, UITableViewDataSource, NSFe
         
         cell.textLabel.text = reminder.name
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let context = self.fetchedResultsController?.managedObjectContext
+            context?.deleteObject(self.fetchedResultsController?.objectAtIndexPath(indexPath) as NSManagedObject)
+            
+            var error: NSError? = nil
+            if context?.save(&error) == false {
+                println(error?.localizedDescription)
+                abort()
+            }
+
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .Delete:
+            tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        default:
+            println("default")
+            return
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        default:
+            println("default")
+            return
+        }
+
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {

@@ -30,7 +30,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             println("authorized")
             self.mapView.showsUserLocation = true
             println("Is user visible? -- \(self.mapView.userLocationVisible)")
-            self.locationManager.startUpdatingLocation()
+            //self.locationManager.startUpdatingLocation()
         case .NotDetermined:
             println("not determined")
             self.locationManager.requestAlwaysAuthorization()
@@ -71,6 +71,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
         self.mapView.showsUserLocation = true
+        
+        // sets blue dot to be visible on current location
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
+        }
         
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "ANNOTATION")
         annotationView.animatesDrop = true
