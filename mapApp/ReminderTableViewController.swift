@@ -21,7 +21,7 @@ class ReminderTableViewController: UIViewController, UITableViewDataSource, NSFe
         self.tableView.dataSource = self
         //self.tableView.tableHeaderView =
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.managedObjectContext = appDelegate.managedObjectContext
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didGetCloudChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: appDelegate.persistentStoreCoordinator)
@@ -47,17 +47,17 @@ class ReminderTableViewController: UIViewController, UITableViewDataSource, NSFe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("REMINDER_CELL", forIndexPath: indexPath) as UITableViewCell
-        let reminder = self.fetchedResultsController?.fetchedObjects?[indexPath.row] as Reminder
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("REMINDER_CELL", forIndexPath: indexPath) as! UITableViewCell
+        let reminder = self.fetchedResultsController?.fetchedObjects?[indexPath.row] as! Reminder
         
-        cell.textLabel.text = reminder.name
+        //cell.textLabel.text = reminder.name
         return cell
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let context = self.fetchedResultsController?.managedObjectContext
-            context?.deleteObject(self.fetchedResultsController?.objectAtIndexPath(indexPath) as NSManagedObject)
+            context?.deleteObject(self.fetchedResultsController?.objectAtIndexPath(indexPath) as! NSManagedObject)
             
             var error: NSError? = nil
             if context?.save(&error) == false {

@@ -20,9 +20,9 @@ class AddReminderViewController: UIViewController {
         super.viewDidLoad()
 
         let regionSet = self.locationManager.monitoredRegions
-        let regions = regionSet.allObjects
+        let regions = regionSet.count
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.managedObjectContext = appDelegate.managedObjectContext
         
     }
@@ -35,7 +35,7 @@ class AddReminderViewController: UIViewController {
         self.locationManager.startMonitoringForRegion(geoRegion)
         
         //insert a new reminder into our DataBase
-        var newReminder = NSEntityDescription.insertNewObjectForEntityForName("Reminder", inManagedObjectContext: self.managedObjectContext) as Reminder
+        var newReminder = NSEntityDescription.insertNewObjectForEntityForName("Reminder", inManagedObjectContext: self.managedObjectContext) as! Reminder
         newReminder.name = "Geo Region!"
         
         // save and check for error

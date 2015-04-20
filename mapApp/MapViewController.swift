@@ -26,7 +26,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         self.mapView.addGestureRecognizer(longPress)
         
         switch CLLocationManager.authorizationStatus() as CLAuthorizationStatus {
-        case .Authorized:
+        case .AuthorizedAlways:
             println("authorized")
             self.mapView.showsUserLocation = true
             println("Is user visible? -- \(self.mapView.userLocationVisible)")
@@ -62,7 +62,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         
-        let reminderVC = self.storyboard?.instantiateViewControllerWithIdentifier("REMINDER_VC") as AddReminderViewController
+        let reminderVC = self.storyboard?.instantiateViewControllerWithIdentifier("REMINDER_VC") as! AddReminderViewController
         reminderVC.locationManager = self.locationManager
         reminderVC.selectedAnnotation = view.annotation
         self.presentViewController(reminderVC, animated: true, completion: nil)
@@ -80,7 +80,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "ANNOTATION")
         annotationView.animatesDrop = true
         annotationView.canShowCallout = true
-        let addButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
+        let addButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as! UIButton
         annotationView.rightCalloutAccessoryView = addButton
         return annotationView
     }
@@ -120,7 +120,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func reminderAdded(notification : NSNotification) {
         let userInfo = notification.userInfo!
-        let geoRegion = userInfo["region"] as CLCircularRegion
+        let geoRegion = userInfo["region"] as! CLCircularRegion
         let overlay = MKCircle(centerCoordinate: geoRegion.center, radius: geoRegion.radius)
         self.mapView.addOverlay(overlay)
     }
